@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/15 15:25:17 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/01/15 15:13:32 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/01/16 14:46:44 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int		main(int ac, char **av)
-{
-	int				i;
-	unsigned int	j;
+# include "libft/libft.h"
 
-	i = 48;
-	j = (unsigned int)i;
-	printf("%c\n", 48);
-	printf("%c", j);
-}
+int				put_int(int nb);
+
+#endif

@@ -6,9 +6,11 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 09:33:52 by fgaribot          #+#    #+#             */
-/*   Updated: 2018/11/15 09:45:20 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/01/16 14:45:28 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_countchar(char const *s, char c)
 {

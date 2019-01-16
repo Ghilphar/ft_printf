@@ -6,12 +6,19 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/14 18:12:48 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:37:15 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
+#include "ft_printf.h"
+
+void	choose_fonction(void (**ptr)())
+{
+	ptr[0] = ft_putnbr;
+	ptr[1] = ft_putstr;
+}
 
 void	ft_putchar(char c)
 {
@@ -61,7 +68,7 @@ char	*translate(unsigned int num, int base)
 int		ft_printf(const char *format, ...)
 {
 	va_list 	argp;
-	const char	*ptr;
+	char const	*ptr;
 	int			i;
 
 	ptr = format;
@@ -71,16 +78,31 @@ int		ft_printf(const char *format, ...)
 		i = ft_countchar(ptr, '%');
 		write(1, ptr, i);
 		ptr += (i);                                                         // Le pointeur est sur le % possibilite de l'envoyer sur une autre fonction pour le traiter.
+		if (*ptr == '%')
+			flags(&ptr, &argp);
+		/*
 		if (*ptr == '%' && (*(ptr + 1) == 'd'))
 		{
 			ft_putnbr(va_arg(argp, int));
 			ptr += 2;
 		}																	// Il faut renvoyer le pointeur a la fin du flag.
+		*/
 	}
 	va_end(argp);
 	return (0);
 }
 
+void	flags(const char **ptr, va_list *argp)
+{
+	if (*(ptr + 1) == 'd')
+		ptr += put_int(va_arg(argp, int));
+}
+
+int		put_int(int nb)
+{
+	ft_putnbr(nb);
+	return (2);
+}
 
 int main()
 {

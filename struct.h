@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/15 15:25:17 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/01/16 15:41:25 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/01/16 15:47:02 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef STRUCT_H
+# define STRUCT_H
 
-int		main(int ac, char **av)
+# include <stdarg.h>
+
+typedef struct		s_param
 {
-	int				i;
-	unsigned int	j;
-
-	i = 48;
-	j = (unsigned int)i;
-	printf("%c\n", 48);
-	printf("%c", j);
-}
+	va_list			argp;
+	void			(*ptr[2])();
+}					t_param;
