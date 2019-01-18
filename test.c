@@ -19,6 +19,6 @@ int		main(int ac, char **av)
 
 	i = 48;
 	j = (unsigned int)i;
-	printf("%c\n", 48);
+	printf("eugfeguyfeygu %c %w \n", 48);
 	printf("%c", j);
 }

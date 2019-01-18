@@ -14,6 +14,16 @@
 # define FT_PRINTF_H
 
 # include "libft/libft.h"
+# include <stdarg.h>
+# include <unistd.h>
+
+typedef struct		s_struct
+{
+	int		count;
+	int		error;
+	va_list		arg;
+	void		(*ptr[2]());
+}			t_struct;
 
 int				put_int(int nb);
 

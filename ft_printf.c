@@ -10,101 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
 #include "ft_printf.h"
 
-void	choose_fonction(void (**ptr)())
+void	define_fonction(void (**ptr)())
 {
 	ptr[0] = ft_putnbr;
 	ptr[1] = ft_putstr;
 }
 
-void	ft_putchar(char c)
+int	flags(char c)
 {
-	write(1, &c, 1);
+	char	*flag;
+	int	i;
+
+	i = 0;
+	flag = "ds";
+	while (c != flag[i])
+		i++;
+	return (c == flag[i] ? 1 : 0);
 }
 
-void    ft_putnbr(int n)
+void	init_struct(t_struct *data, char *str)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	if (n >= 0 && n < 10)
-		ft_putchar(n + '0');
-	if (n < 0 && n != -2147483648)
-	{
-		ft_putchar('-');
-		ft_putnbr(-n);
-	}
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
+	(*data).i = 0;
+	data->error = 0;
 }
 
-/*
-char	*translate(unsigned int num, int base)
+int	ft_printf(const char *format, ...)
 {
-	static char buff[33];
-	char 		*ptr;
+	t_struct	data;
 
-	ptr = &buff[sizeof(buff) - 1];
-	*ptr = '\0';
-	do{
-		*--ptr = "0123456789abcdef"[num % base];
-		num /= base;
-	} 
-	while (num != 0);
-
-	return (ptr);
-}
-*/
-
-int		ft_printf(const char *format, ...)
-{
-	va_list 	argp;
-	char const	*ptr;
-	int			i;
-
-	ptr = format;
-	va_start(argp, format);
-	while (*ptr != '\0')
+	int		i;
+	init_struct(&data, str);
+	va_start(data.arg, str);
+	define_fonciton(data.ptr);
+	while (*format != '\0')
 	{
-		i = ft_countchar(ptr, '%');
-		write(1, ptr, i);
-		ptr += (i);                                                         // Le pointeur est sur le % possibilite de l'envoyer sur une autre fonction pour le traiter.
-		if (*ptr == '%')
-			flags(&ptr, &argp);
-		/*
-		if (*ptr == '%' && (*(ptr + 1) == 'd'))
+		i = ft_countchar(format, '%')
+		write(1, format, i);
+		format += i;
+		if (*format == '%' && flags(*(format + 1) == 1))
 		{
-			ft_putnbr(va_arg(argp, int));
-			ptr += 2;
-		}																	// Il faut renvoyer le pointeur a la fin du flag.
-		*/
+			call_fonction(format[data.i + 1], data.ptr, data.arg);
+			data.i = data.i 
+		}
 	}
-	va_end(argp);
-	return (0);
-}
-
-void	flags(const char **ptr, va_list *argp)
-{
-	if (*(ptr + 1) == 'd')
-		ptr += put_int(va_arg(argp, int));
-}
-
-int		put_int(int nb)
-{
-	ft_putnbr(nb);
-	return (2);
-}
-
-int main()
-{
-	ft_printf("un : %d, deux : %d, et trois int : %d\n fe", 15, 150, 666);
 }
