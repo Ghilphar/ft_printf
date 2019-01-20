@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/20 22:34:49 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/01/20 23:15:58 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_func	g_tab[] =
 	{&flag_x, 'x'},
 	{&flag_X, 'X'},
 	{&flag_h, 'h'},
+	{&flag_l, 'l'},
 	{NULL, -1}
 };
 
@@ -64,6 +65,7 @@ int		ft_printf(const char *format, ...)
 	data.format = format;
 	data.i = 0;
 	data.casth = 0;
+	data.castl = 0;
 	data.j = 0;
 	va_start(ap, format);
 	while (format[data.j] != '\0')
