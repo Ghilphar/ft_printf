@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 15:13:32 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/16 14:46:44 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/01/20 21:30:30 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,36 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
+# include <inttypes.h>
 
-typedef struct		s_struct
+typedef struct		s_data
 {
-	int		count;
-	int		error;
-	va_list		arg;
-	void		(*ptr[2]());
-}			t_struct;
+	int				i;
+	int				casth;
+	const char		*format;
+	int				j;
+	int				precision;
+}					t_data;
 
-int				put_int(int nb);
+va_list				*flag_h(va_list ap, t_data **data);
+va_list				*flag_s(va_list ap, t_data **data);
+va_list				*flag_di(va_list ap, t_data **data);
+va_list				*flag_c(va_list ap, t_data **data);
+va_list				*flag_u(va_list ap, t_data **data);
+va_list				*flag_o(va_list ap, t_data **data);
+va_list				*flag_x(va_list ap, t_data **data);
+va_list				*flag_X(va_list ap, t_data **data);
+
+void				exec_flag(char c, va_list ap, t_data *data);
+
+typedef struct		s_func
+{
+	va_list 		*(*ptrfunc)(va_list ap, t_data **data);
+	char			key;
+}					t_func;
+
+void				print_unsigned_base(size_t nb, char *base, t_data ***data);
+void				print_signed_base(intmax_t nb, char *base, t_data ***data);
+int					ft_printf(const char *format, ...);
 
 #endif

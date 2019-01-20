@@ -6,19 +6,18 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/15 15:25:17 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/01/20 19:33:10 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "./libft/libft.h"
 
-int		main(int ac, char **av)
+int main ()
 {
-	int				i;
-	unsigned int	j;
+	short i;
 
-	i = 48;
-	j = (unsigned int)i;
-	printf("eugfeguyfeygu %c %w \n", 48);
-	printf("%c", j);
+	i = 32700;
+	printf("test : %hd", i);
+	return 0;
 }

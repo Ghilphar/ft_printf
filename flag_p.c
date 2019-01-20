@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countchar.c                                     :+:      :+:    :+:   */
+/*   flag_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 09:33:52 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/15 15:25:48 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/01/20 05:37:34 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/01/20 05:38:17 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_countchar(char const *s, char c)
-{
-	int i;
+#include "ft_printf.h"
 
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i] != c && s[i] != '\0')
-		i++;
-	return (i);
+va_list	*flag_p(va_list ap)
+{
+
 }
