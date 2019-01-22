@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/20 23:15:12 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/01/22 10:16:13 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
-# include <inttypes.h>
 
 typedef struct		s_data
 {
@@ -46,8 +45,8 @@ typedef struct		s_func
 	char			key;
 }					t_func;
 
-void				print_unsigned_base(size_t nb, char *base, t_data ***data);
-void				print_signed_base(intmax_t nb, char *base, t_data ***data);
+void				print_unsigned_base(unsigned long long nb, char *base, t_data ***data);
+void				print_signed_base(long long nb, char *base, t_data ***data);
 int					ft_printf(const char *format, ...);
 
 #endif

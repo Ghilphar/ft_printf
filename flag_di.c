@@ -6,13 +6,13 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 05:18:47 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/20 23:18:37 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/01/22 10:24:20 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_signed_base(intmax_t nb, char *base,t_data ***data)
+void	print_signed_base(long long nb, char *base,t_data ***data)
 {
 	int     tab[100];
 	char    tab2[100];
@@ -56,13 +56,13 @@ va_list	*flag_di(va_list ap, t_data **data)
 	}
 	if ((*data)->castl == 1)
 	{
-		print_signed_base((long)va_arg(ap, int), "0123456789", &data);
+		print_signed_base((long)va_arg(ap, long), "0123456789", &data);
 		(*data)->castl = 0;
 		return (0);
 	}
 	if ((*data)->castl == 2)
 	{
-		print_signed_base((long long)va_arg(ap, int), "0123456789", &data);
+		print_signed_base((long long)va_arg(ap, long long), "0123456789", &data);
 		(*data)->castl = 0;
 		return (0);
 	}
