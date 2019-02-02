@@ -6,13 +6,13 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/22 10:15:14 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/02 16:49:53 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_unsigned_base(unsigned long long nb, char *base, t_data ***data)
+void	print_unsigned_base(unsigned long long  nb, char *base, t_data ***data)
 {
 	int		tab[50];
 	char	tab2[50];

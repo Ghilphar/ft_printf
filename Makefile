@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/01/20 23:23:54 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/02/02 16:49:19 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)flag_o.c\
 		$(SRC)flag_xX.c\
 		$(SRC)flag_h.c\
-		$(SRC)flag_l.c\
+		$(SRC)flag_p.c\
 		$(SRC)decimal_print_base.c\
 		$(SRC)ft_printf.c
 
