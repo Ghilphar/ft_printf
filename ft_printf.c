@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/02 16:42:12 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/04 17:17:43 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,32 @@ void	exec_flag(char c, va_list ap, t_data *data)
 	}
 }
 
-void	flag(const char *format)
-{
-	if (*format == '-')
-		ft_putchar('-');
-	if (*format == '#')
-	{
-		format++;
-		if (*format == 'o') 
-			ft_putchar('0');
-		if (*format == 'x')
-			ft_putstr("0x");
-		if (*format == 'X')
-			ft_putstr("0X");
-		format--;
-	}
-}
-
 void	ft_init_data(t_data *data, const char **format)
 {
 	data->format = *format;
 	data->i = 0;
 	data->j = 0;
 	data->casth = 0;
+	data->zero = 0;
+}
+
+void	analyse_flags(t_data *data)
+{
+	while (data->format[data->j] == '+' || data->format[data->j] == '-' ||
+			data->format[data->j] == '#' || data->format[data->j] == ' ' ||
+			data->format[data->j] == '0')
+	{
+		data->zero = data->format[data->j] == '0' ? 1 : data->zero;
+		data->plus = data->format[data->j] == '+' ? 1 : data->plus;
+		data->minus = data->format[data->j] == '-' ? 1 : data->minus;
+		data->sharp = data->format[data->j] == '#' ? 1 : data->sharp;
+		data->space = data->format[data->j] == ' ' ? 1 : data->space;
+		data->j += 1;
+	}
+	data->field = ft_isdigit(data->format[data->j]) == 1 ?
+		ft_atoi(data->format + j) : data->field;
+	while (ft_isdigit(data->format[data->j]) == 1)
+		data->j += 1;
 }
 
 int		ft_printf(const char *format, ...)
@@ -76,8 +79,8 @@ int		ft_printf(const char *format, ...)
 	{
 		if (format[data.j] == '%')
 		{
-			if (format[++data.j] == '#')
-				flag(format + data.j++);
+			data.j++;
+			analyse_flags(&data);
 			if (format[data.j] != '%')
 				exec_flag(format[data.j++], ap, &data);
 		}

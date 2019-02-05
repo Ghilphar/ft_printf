@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 05:02:48 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/02 16:55:06 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:48:17 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int main()
 {
 
 	int		*in;
-
+	
+	ft_putnbr(printf("%+-#0 10.10d|\n", 15));
+	ft_putchar('\n');
 	
 	ft_putnbr(printf("%p ; s : %s \n d : %hhd c: %c, u: %hhu, o: %hho, x: %hhx, X: %hhX, %%\n", in, "chien", (char)150,320, (unsigned char)50, (unsigned char)20000000,(unsigned char)150, (unsigned char)250));
 	ft_putchar('\n');

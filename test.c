@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/20 19:33:10 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:11:45 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 int main ()
 {
-	short i;
+	int		j;
+	char	*str;
 
-	i = 32700;
-	printf("test : %hd", i);
-	return 0;
+	str = "00123.1frg3143";
+	ft_putnbr(ft_atoi(str));
+	ft_putchar('\n');
+	return (0);
 }

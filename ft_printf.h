@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/02 16:51:59 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/04 17:00:09 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct		s_data
 	int				casth;
 	const char		*format;
 	int				j;
+	int				zero;
+	int				plus;
+	int				minus;
+	int				sharp;
+	int				space;
+	int				field;
 	int				precision;
 }					t_data;
 
