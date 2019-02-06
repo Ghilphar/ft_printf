@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 23:11:42 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/01/20 23:16:14 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/06 16:53:39 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ va_list	*flag_l(va_list ap, t_data **data)
 	if (i < 6)
 	{
 		(*data)->castl = 1;
-		exec_flag((*data)->format[((*data)->j)++], ap, &(**data));
+		exec_specifier((*data)->format[((*data)->j)++], ap, &(**data));
 	}
 
 	if (i == 6)
@@ -38,7 +38,7 @@ va_list	*flag_l(va_list ap, t_data **data)
 		if (i < 6)
 		{
 			(*data)->castl = 2;
-			exec_flag((*data)->format[((*data)->j)++], ap, &(**data));
+			exec_specifier((*data)->format[((*data)->j)++], ap, &(**data));
 		}
 	}
 	return (0);

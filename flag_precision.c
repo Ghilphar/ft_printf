@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   flag_precision.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 15:22:56 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/02/06 15:44:52 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/02/06 16:57:19 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "./libft/libft.h"
+#include "ft_printf.h"
 
-int		find_flag(char c);
-
-int main ()
+void	flag_precision(t_data **data)
 {
-	char	c;
-
-	c = 'd';
-	ft_putnbr(find_flag(c));
-	ft_putchar('\n');
-	return (0);
+	(*data)->j += 1;
+	(*data)->precision = ft_atoi((*data)->format + (*data)->j);
+	while (ft_isdigit((*data)->format[(*data)->j]) == 1)
+		(*data)->j += 1;
 }

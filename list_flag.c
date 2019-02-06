@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   list_flag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 15:22:56 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/02/06 15:16:37 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/02/06 16:07:11 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "./libft/libft.h"
-
-int		find_flag(char c);
-
-int main ()
+int		list_flag(char c)
 {
-	char	c;
+	char	*flags;
+	int		i;
 
-	c = 'd';
-	ft_putnbr(find_flag(c));
-	ft_putchar('\n');
+	i = 0;
+	flags = "0123456789.#+- |";
+	while (flags[i] != c && flags[i] != '|')
+		i++;
+	if (flags[i] == c)
+		return (1);
 	return (0);
 }

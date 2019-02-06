@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 15:22:56 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/02/06 15:26:37 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/02/06 16:56:50 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "./libft/libft.h"
+#include "ft_printf.h"
 
-int		find_flag(char c);
-
-int main ()
+void	flag_sharp(t_data **data)
 {
-	char	c;
+	(*data)->sharp = 1;
+	(*data)->j += 1;
+}
 
-	c = 'd';
-	ft_putnbr(find_flag(c));
-	ft_putchar('\n');
-	return (0);
+void	flag_plus(t_data **data)
+{
+	(*data)->plus = 1;
+	(*data)->j += 1;
+}
+
+void	flag_minus(t_data **data)
+{
+	(*data)->minus = 1;
+	(*data)->j += 1;
+}
+
+void	flag_space(t_data **data)
+{
+	(*data)->space = 1;
+	(*data)->j += 1;
+}
+
+void	flag_zero(t_data **data)
+{
+	(*data)->zero = 1;
+	(*data)->j += 1;
 }
