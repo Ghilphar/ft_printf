@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 16:15:07 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/08 16:16:47 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/08 20:00:31 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,40 @@ void		print_signed_base(long long nb, char *base, t_data ***data)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';
 	ft_putstr(tab2);
+}
+
+void	flgs(t_data ****data, int **tab)
+{
+	int		digits;
+
+	if ((***data)->field <= (***data)->precision)
+		(***data)->field = 0;
+
+}
+
+void	print_signed_base(long long nb, char *base, t_data ***data)
+{
+	int		tab[100];
+	char	tab2[100];
+	int		b;
+	int		j;
+	int		digits;
+	int		neg;
+
+	j = 0;
+	if (nb < 0)
+	{
+		neg = -1;
+		nb = -nb;
+	}
+	b = ft_strlen(base);
+	digits = ft_countdigits_base(nb, b);
+	while (nb != 0)
+	{
+		tab[j] = nb % b;
+		nb = nb / b;
+		j++;
+	}
+	(**data)->i += j;
+	
 }

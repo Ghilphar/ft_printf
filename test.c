@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/08 17:01:11 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:01:39 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main ()
 {
-	int		d = -11;
-	ft_putnbr(printf("% .2d\n", d));
+	int		d = 54321;
+	ft_putnbr(printf("%.3d\n", d));
 	return(0);
 }

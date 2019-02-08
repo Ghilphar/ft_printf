@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 18:17:52 by fgaribot          #+#    #+#             */
-/*   Updated: 2018/12/17 18:11:54 by jmoucach         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:26:38 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void				ft_putnbr_fd(int n, int fd);
 char				*ft_itoa(int n);
 char				*ft_strrev(char *str);
 int					ft_countdigits(int n);
+int					ft_countdigits_base(long long n, int base);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));

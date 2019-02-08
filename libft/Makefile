@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:15:16 by fgaribot          #+#    #+#              #
-#    Updated: 2018/12/12 17:12:34 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/02/08 18:20:28 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ FILES = $(SRC)ft_memset.c\
 		$(SRC)ft_strlcat.c\
 		$(SRC)ft_strncat.c\
 		$(SRC)ft_strchr.c\
+		$(SRC)ft_countdigits_base.c\
 		$(SRC)ft_strrchr.c\
 		$(SRC)ft_strstr.c\
 		$(SRC)ft_strnstr.c\
