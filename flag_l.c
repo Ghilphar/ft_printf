@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 23:11:42 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/07 09:05:18 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:06:09 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ va_list	*flag_l(va_list ap, t_data **data)
 	int     i;
 
 	i = 0;
-	flag = "diouxXl";
-	while ((*data)->format[(*data)->j] != flag[i] && flag[i] != '\0' &&
+	flag = "diouxXl|";
+	while ((*data)->format[(*data)->j] != flag[i] && flag[i] != '|' &&
 			(*data)->format[(*data)->j] != '\0')
 		i++;
 	if (i < 7)

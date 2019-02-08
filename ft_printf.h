@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 18:06:07 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:09:25 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_data
 }					t_data;
 
 va_list				*flag_h(va_list ap, t_data **data);
+va_list				*flag_l(va_list ap, t_data **data);
 va_list				*flag_s(va_list ap, t_data **data);
 va_list				*flag_di(va_list ap, t_data **data);
 va_list				*flag_c(va_list ap, t_data **data);
@@ -62,7 +63,7 @@ typedef struct		s_flag
 
 void				print_unsigned_base(unsigned long long nb, char *base,
 	   				t_data ***data);
-void				print_signed_base(intmax_t nb, char *base, t_data ***data);
+void				print_signed_base(long long nb, char *base, t_data ***data);
 int					list_flag(char c);
 void				flag_sharp(t_data **data);
 void				flag_zero(t_data **data);
