@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/08 15:09:25 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:18:10 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct		s_flag
 	char			key;
 }					t_flag;
 
+void				print_signed_base(long long nb, char *bas, t_data ***data);
 void				print_unsigned_base(unsigned long long nb, char *base,
 	   				t_data ***data);
 void				print_signed_base(long long nb, char *base, t_data ***data);
