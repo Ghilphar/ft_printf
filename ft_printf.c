@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 17:43:46 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/07 09:07:50 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	ft_init_data(t_data *data, const char **format)
 
 void	ft_reset_flag(t_data *data)
 {
+	data->casth = 0;
+	data->castl = 0;
 	data->zero = 0;
 	data->field = 0;
 	data->precision = 0;

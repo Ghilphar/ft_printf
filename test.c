@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 15:22:56 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/06 18:02:58 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ int		find_flag(char c);
 
 int main ()
 {
-	char	c;
-
-	c = 'd';
-	ft_putnbr(find_flag(c));
-	ft_putchar('\n');
-	return (0);
+	int		i = 2;
+	char	*man;
+	if (i == 2)
+		exit(0);
+	if (i == 1)
+		i = 2;
+	else
+		i = 1;
+	ft_putnbr(i);
+	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 17:37:30 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/06 18:06:07 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <inttypes.h>
+# include <stdlib.h>
 
 typedef struct		s_data
 {
