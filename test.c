@@ -17,6 +17,6 @@
 int main ()
 {
 	int		d = 54321;
-	ft_putnbr(printf("%.3d\n", d));
+	ft_putnbr(printf("%+.6d\n", d));
 	return(0);
 }

@@ -54,11 +54,12 @@ void	print_signed_base(long long nb, char *base, t_data ***data)
 	int		tab[100];
 	char	tab2[100];
 	int		b;
-	int		j;
+//	int		j;
 	int		digits;
 	int		neg;
+	int		i;
 
-	j = 0;
+//	j = 0;
 	if (nb < 0)
 	{
 		neg = -1;
@@ -70,8 +71,32 @@ void	print_signed_base(long long nb, char *base, t_data ***data)
 	{
 		tab[j] = nb % b;
 		nb = nb / b;
-		j++;
+//		j++;
 	}
-	(**data)->i += j;
+	(**data)->i += digits;
+	(**data)->field -= digits;
+	while ((**data)->field > ((**data)->precision + 1) &&
+		(**data)->minus == 0 && (**data)->zero == 0)
+	{
+		ft_putchar(' ');
+		(**data)->field -= 1;
+		(**data)->i += 1;
+	}	
+	if ((**data)->plus == 1 || (**data)->space == 1 || neg == -1)
+	{
+		if (neg == -1)
+			ft_putchar('-');
+		else if ((**data)->plus == 1 && neg == 0)
+			ft_putchar('+');
+		else if ((**data)->space == 1 && neg == 0)
+			ft_putchar(' ');
+		else if (((**data)->field > (**data)->precision) &&
+			((**data)->minus == 0) && ((**data)->zero == 0))
+			ft_putchar(' ');
+		while ((**data)->)
+		(**data)->i += 1;
+		(**data)->field -= 1;
+		if ((**data)->field
+	}
 	
 }
