@@ -88,7 +88,7 @@ void	test4(t_data ****data)
 void	print_signed_base(long long nb, char *base, t_data ***data)
 {
 	int		tab[100];
-	char	tab2[100];
+	char		tab2[100];
 	int		b;
 	int		j;
 	int		i;

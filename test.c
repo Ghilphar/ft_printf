@@ -16,10 +16,10 @@
 
 int main ()
 {
-	long		d = 3000000000000000;
+	int	o = 15;
 
-	ft_putnbr(printf("%+0 ld|\n", d));
+	ft_putnbr(printf("%#10o|\n", o));
 	ft_putchar('\n');
-	ft_putnbr(ft_printf("%+0 ld|\n", d));
+	ft_putnbr(ft_printf("%#10o|\n", o));
 	return(0);
 }
