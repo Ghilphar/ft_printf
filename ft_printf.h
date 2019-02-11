@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/11 16:56:43 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:40:00 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct		s_data
 	int				field;
 	int				precision;
 	int				neg;
-	int				digits;
+	long long		digits;
 	char			specifier;
 }					t_data;
 
