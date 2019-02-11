@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/02/08 16:17:17 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/02/11 14:24:00 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)flag_field.c\
 		$(SRC)flag_precision.c\
 		$(SRC)decimal_print_base.c\
-		$(SRC)print_signed_base.c\
+		$(SRC)print_signed_base_v2.c\
 		$(SRC)ft_printf.c
 
 OBJ = $(FILES:.c=.o)

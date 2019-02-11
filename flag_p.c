@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 05:37:34 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/02 16:53:34 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:07:51 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ va_list		*flag_p(va_list ap, t_data **data)
 {
 	uintptr_t adress;
 
+	(*data)->specifier = 'p';
 	adress = (uintptr_t)(va_arg(ap, void*));
 	ft_putstr("0x");
 	(*data)->i += 2;

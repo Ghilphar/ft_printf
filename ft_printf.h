@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/08 16:18:10 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:56:43 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct		s_data
 	int				space;
 	int				field;
 	int				precision;
+	int				neg;
+	int				digits;
+	char			specifier;
 }					t_data;
 
 va_list				*flag_h(va_list ap, t_data **data);
