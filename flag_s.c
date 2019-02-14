@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 04:46:33 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/11 16:08:19 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/14 07:32:05 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@ void	print_str(char *s, t_data ***data)
 {
 	int i;
 
-	i = ft_strlen(s);
-	(**data)->i += i;
 	if (!s)
 		return ;
+	i = ft_strlen(s);
+	if ((**data)->precision < i)
+	{
+		(**data)->i += (**data)->precision;
+		write(1, s, (**data)->precision);
+		return ;
+	}
+	(**data)->i += i;
 	write(1, s, i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/11 17:20:46 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/14 07:33:56 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ t_func	g_tab[] =
 	{&flag_o, 'o'},
 	{&flag_x, 'x'},
 	{&flag_X, 'X'},
-	{&flag_h, 'h'},
-	{&flag_l, 'l'},
 	{&flag_p, 'p'},
 	{NULL, -1}
 };
@@ -45,6 +43,8 @@ t_flag	g_flag[] =
 	{&flag_field, '7'},
 	{&flag_field, '8'},
 	{&flag_field, '9'},
+	{&flag_h, 'h'},
+	{&flag_l, 'l'},
 	{NULL, -1}
 };
 

@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/11 18:40:00 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/14 07:10:07 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ typedef struct		s_data
 	char			specifier;
 }					t_data;
 
-va_list				*flag_h(va_list ap, t_data **data);
-va_list				*flag_l(va_list ap, t_data **data);
+void				flag_h(t_data **data);
+void				flag_l(t_data **data);
+
 va_list				*flag_s(va_list ap, t_data **data);
 va_list				*flag_di(va_list ap, t_data **data);
 va_list				*flag_c(va_list ap, t_data **data);

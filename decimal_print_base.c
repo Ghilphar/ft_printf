@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/02 16:49:53 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/14 04:42:01 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	print_unsigned_base(unsigned long long  nb, char *base, t_data ***data)
 }
 */
 
-int             test_1(t_data ****data, long long nb, char *base)
+int             test_1(t_data ****data, unsigned long long nb, char *base)
 {
 	int             tab[100];
 	int             b;
@@ -79,32 +79,14 @@ void    test_2(t_data ****data)
 		(***data)->field -= 1;
 		(***data)->i += 1;
 	}
-}
-
-void    test_3(t_data ****data)
-{
-/*
-	if ((***data)->neg == -1 || (***data)->plus == 1 ||
-			(***data)->zero == 1 || (***data)->space == 1 || (***data)->field == 1)
-	{
-		(***data)->i += 1;
-		(***data)->field -= 1;
-	}
-	if ((***data)->neg == -1)
-		ft_putchar('-');
-	else if ((***data)->plus == 1 && (***data)->neg >= 0)
-		ft_putchar('+');
-	else if ((***data)->zero == 1)
-		ft_putchar('0');
-	else if ((***data)->space == 1 || (***data)->field == 0)
-		ft_putchar(' ');
-*/
 	while ((***data)->precision > (***data)->digits)
 	{
 		ft_putchar('0');
 		(***data)->i += 1;
 		(***data)->precision--;
 	}
+	if ((***data)->neg == 0)
+		ft_putchar('0');
 }
 
 void    test_4(t_data ****data)
@@ -115,6 +97,21 @@ void    test_4(t_data ****data)
 		(***data)->field -= 1;
 		(***data)->i += 1;
 	}
+}
+
+
+void	test_3(t_data ****data, int j)
+{
+	if ((***data)->specifier == 'o' && j != 0)
+		{
+			ft_putchar('0');
+			(***data)->i += 1;
+		}
+	else if (((***data)->specifier == 'x' || (***data)->specifier == 'X') && j != 0)
+		{
+			ft_putstr("0x");
+			(***data)->i += 2;
+		}
 }
 
 void	print_unsigned_base(unsigned long long nb, char *base, t_data ***data)
@@ -136,12 +133,12 @@ void	print_unsigned_base(unsigned long long nb, char *base, t_data ***data)
 	}
 	(**data)->i += (**data)->digits;
 	test_2(&data);
-	test_3(&data);
+	if (((**data)->specifier == 'o' || (**data)->specifier == 'x' ||
+				(**data)->specifier == 'X') && (**data)->sharp == 1)
+		test_3(&data, j);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';
-	if ((**data)->neg == 0)
-		ft_putchar('0');
 	ft_putstr(tab2);
 	test_4(&data);
 }

@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 16:15:07 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/11 18:39:28 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/14 07:24:16 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,13 @@ void	test3(t_data ****data)
 		ft_putchar('+');
 	else if ((***data)->zero == 1)
 		ft_putchar('0');
-	else if ((***data)->space == 1 || (***data)->field == 0)
+	else if (((***data)->space == 1 || (***data)->field == 0) && (***data)->minus == 0)
 		ft_putchar(' ');
+	else
+	{
+		(***data)->field += 1;
+		(***data)->i -= 1;
+	}
 	while ((***data)->precision > (***data)->digits)
 	{
 		ft_putchar('0');

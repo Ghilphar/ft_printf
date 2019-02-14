@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   flag_h.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/14 07:29:31 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/01/20 19:18:33 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/02/14 06:45:59 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-#include "./libft/libft.h"
 
-int main ()
+void	flag_h(t_data **data)
 {
-	char *	i = "01234567890123456789";
-
-	ft_putnbr(printf("%.12s|\n", i));
-	ft_putchar('\n');
-	ft_putnbr(ft_printf("%.12s|\n", i));
-	return(0);
+	(*data)->casth = ((*data)->casth == 0) ? 1 : 2;
+	(*data)->j += 1;
 }
