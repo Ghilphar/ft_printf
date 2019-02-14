@@ -6,47 +6,17 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/14 04:42:01 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/14 08:07:51 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-void	print_unsigned_base(unsigned long long  nb, char *base, t_data ***data)
+int			test_1(t_data ****data, unsigned long long nb, char *base)
 {
-	int		tab[50];
-	char	tab2[50];
-	int		i;
+	int		tab[100];
+	int		b;
 	int		j;
-
-	j = 0;
-	i = ft_strlen(base);
-	if (nb == 0)
-	{
-		ft_putchar('0');
-		(**data)->i++;
-	}
-	while (nb != 0)
-	{
-		tab[j] = nb % i;
-		nb = nb / i;
-		j++;
-	}
-	(**data)->i += j;
-	i = 0;
-	while (--j >= 0)
-		tab2[i++] = base[tab[j]];
-	tab2[i] = '\0';
-	ft_putstr(tab2);
-}
-*/
-
-int             test_1(t_data ****data, unsigned long long nb, char *base)
-{
-	int             tab[100];
-	int             b;
-	int             j;
 
 	j = 1;
 	tab[0] = 0;
@@ -63,7 +33,7 @@ int             test_1(t_data ****data, unsigned long long nb, char *base)
 	return (b);
 }
 
-void    test_2(t_data ****data)
+void		test_2(t_data ****data)
 {
 	if ((***data)->precision != 0)
 		(***data)->zero = 0;
@@ -89,7 +59,7 @@ void    test_2(t_data ****data)
 		ft_putchar('0');
 }
 
-void    test_4(t_data ****data)
+void		test_4(t_data ****data)
 {
 	while ((***data)->field > 0 && (***data)->minus == 1)
 	{
@@ -99,28 +69,28 @@ void    test_4(t_data ****data)
 	}
 }
 
-
-void	test_3(t_data ****data, int j)
+void		test_3(t_data ****data, int j)
 {
 	if ((***data)->specifier == 'o' && j != 0)
-		{
-			ft_putchar('0');
-			(***data)->i += 1;
-		}
-	else if (((***data)->specifier == 'x' || (***data)->specifier == 'X') && j != 0)
-		{
-			ft_putstr("0x");
-			(***data)->i += 2;
-		}
+	{
+		ft_putchar('0');
+		(***data)->i += 1;
+	}
+	else if (((***data)->specifier == 'x' ||
+				(***data)->specifier == 'X') && j != 0)
+	{
+		ft_putstr("0x");
+		(***data)->i += 2;
+	}
 }
 
-void	print_unsigned_base(unsigned long long nb, char *base, t_data ***data)
+void		print_unsigned(unsigned long long nb, char *base, t_data ***data)
 {
-	int             tab[100];
-	char            tab2[100];
-	int             b;
-	int             j;
-	int             i;
+	int		tab[100];
+	char	tab2[100];
+	int		b;
+	int		j;
+	int		i;
 
 	j = 0;
 	i = 0;
