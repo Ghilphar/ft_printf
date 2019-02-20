@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_c.c                                           :+:      :+:    :+:   */
+/*   merde.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/20 05:24:04 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/20 18:58:49 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/02/20 18:28:09 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/02/20 18:38:06 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
 
-va_list				*flag_c(va_list ap, t_data **data)
+void	test2(char **s)
 {
-	int				i;
-	unsigned int	j;
+	char *s2;
 
-	(*data)->specifier = 'c';
-	i = va_arg(ap, int);
-	j = (unsigned int)i;
-	(*data)->i += 1;
-	ft_putchar(j);
-	return (0);
+	s2 = "chat";
+	printf("%s", *s);
+	*s = s2;
+}
+
+void	test(char **s)
+{
+	test2(&*s);
+}
+
+int main()
+{
+	char *str;
+
+	str = "chien";
+	test(&str);
+	printf("%s", str);
 }
