@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/02/14 08:57:20 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/02/20 14:29:16 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,13 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)decimal_print_base.c\
 		$(SRC)print_signed_base_v2.c\
 		$(SRC)print_signed.c\
-		$(SRC)ft_printf.c
+		$(SRC)ft_printf.c\
+		$(SRC)/libft/ft_putstr.c\
+		$(SRC)/libft/ft_strlen.c\
+		$(SRC)/libft/ft_putchar.c\
+		$(SRC)/libft/ft_atoi.c\
+		$(SRC)/libft/ft_countdigits_base.c\
+		$(SRC)/libft/ft_isdigit.c
 
 OBJ = $(FILES:.c=.o)
 

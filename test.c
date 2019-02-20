@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/14 11:43:06 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/20 17:01:57 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int main ()
 {
 	char 	*i = NULL;
 
-	ft_putnbr(printf("%s\n", i));
-	ft_putchar('\n');
-	ft_putnbr(ft_printf("%s\n", i));
+	ft_printf("%10.7s\n", "chien");
+	printf("%10.7s", "chien");
 	return(0);
 }

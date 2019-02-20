@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/14 08:42:44 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/20 17:25:33 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_init_data(t_data *data, const char **format)
 	data->castl = 0;
 	data->zero = 0;
 	data->field = 0;
-	data->precision = 0;
+	data->precision = -1;
 	data->plus = 0;
 	data->sharp = 0;
 	data->zero = 0;
@@ -100,7 +100,7 @@ void	ft_reset_flag(t_data *data)
 	data->castl = 0;
 	data->zero = 0;
 	data->field = 0;
-	data->precision = 0;
+	data->precision = -1;
 	data->sharp = 0;
 	data->minus = 0;
 	data->plus = 0;
