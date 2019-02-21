@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/20 18:49:58 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/21 10:45:34 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,38 +76,38 @@ void	exec_flag(char c, t_data **data)
 
 void	ft_init_data(t_data **data, const char **format)
 {
-	data->format = *format;
-	data->i = 0;
-	data->j = 0;
-	data->casth = 0;
-	data->castl = 0;
-	data->zero = 0;
-	data->field = 0;
-	data->precision = -1;
-	data->plus = 0;
-	data->sharp = 0;
-	data->zero = 0;
-	data->space = 0;
-	data->minus = 0;
-	data->neg = 1;
-	data->digits = 0;
-	data->specifier = '|';
+	(*data)->format = *format;
+	(*data)->i = 0;
+	(*data)->j = 0;
+	(*data)->casth = 0;
+	(*data)->castl = 0;
+	(*data)->zero = 0;
+	(*data)->field = 0;
+	(*data)->precision = -1;
+	(*data)->plus = 0;
+	(*data)->sharp = 0;
+	(*data)->zero = 0;
+	(*data)->space = 0;
+	(*data)->minus = 0;
+	(*data)->neg = 1;
+	(*data)->digits = 0;
+	(*data)->specifier = '|';
 }
 
 void	ft_reset_flag(t_data **data)
 {
-	data->casth = 0;
-	data->castl = 0;
-	data->zero = 0;
-	data->field = 0;
-	data->precision = -1;
-	data->sharp = 0;
-	data->minus = 0;
-	data->plus = 0;
-	data->space = 0;
-	data->neg = 1;
-	data->digits = 0;
-	data->specifier = '|';
+	(*data)->casth = 0;
+	(*data)->castl = 0;
+	(*data)->zero = 0;
+	(*data)->field = 0;
+	(*data)->precision = -1;
+	(*data)->sharp = 0;
+	(*data)->minus = 0;
+	(*data)->plus = 0;
+	(*data)->space = 0;
+	(*data)->neg = 1;
+	(*data)->digits = 0;
+	(*data)->specifier = '|';
 }
 
 int		ft_printf(const char *format, ...)
@@ -135,5 +135,5 @@ int		ft_printf(const char *format, ...)
 		ft_reset_flag(&data);
 	}
 	va_end(ap);
-	return (data.i);
+	return (data->i);
 }

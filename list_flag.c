@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:16:37 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/20 14:50:27 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/21 10:38:27 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		list_flag(char c)
 	flags = "0123456789.#+- hl|";
 	while (flags[i] != c && flags[i] != '|')
 		i++;
-	if (flags[i] == c)
+	if (flags[i] == c && c != '|')
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/02/20 14:29:16 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/02/21 10:54:02 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)flag_c.c\
 		$(SRC)flag_u.c\
 		$(SRC)flag_o.c\
-		$(SRC)flag_x.c\
+		$(SRC)flag_xX.c\
 		$(SRC)flag_h_v2.c\
 		$(SRC)flag_l_v2.c\
 		$(SRC)flag_p.c\
