@@ -6,38 +6,38 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:26:37 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/06 16:56:50 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/21 12:25:05 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flag_sharp(t_data **data)
+void	flag_sharp(t_data *data)
 {
-	(*data)->sharp = 1;
-	(*data)->j += 1;
+	data->sharp = 1;
+	data->j += 1;
 }
 
-void	flag_plus(t_data **data)
+void	flag_plus(t_data *data)
 {
-	(*data)->plus = 1;
-	(*data)->j += 1;
+	data->plus = 1;
+	data->j += 1;
 }
 
-void	flag_minus(t_data **data)
+void	flag_minus(t_data *data)
 {
-	(*data)->minus = 1;
-	(*data)->j += 1;
+	data->minus = 1;
+	data->j += 1;
 }
 
-void	flag_space(t_data **data)
+void	flag_space(t_data *data)
 {
-	(*data)->space = 1;
-	(*data)->j += 1;
+	data->space = 1;
+	data->j += 1;
 }
 
-void	flag_zero(t_data **data)
+void	flag_zero(t_data *data)
 {
-	(*data)->zero = 1;
-	(*data)->j += 1;
+	data->zero = 1;
+	data->j += 1;
 }

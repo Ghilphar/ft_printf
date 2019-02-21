@@ -6,14 +6,14 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 19:18:33 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/14 06:45:59 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/21 12:15:35 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flag_h(t_data **data)
+void	flag_h(t_data *data)
 {
-	(*data)->casth = ((*data)->casth == 0) ? 1 : 2;
-	(*data)->j += 1;
+	data->casth = (data->casth == 0) ? 1 : 2;
+	data->j += 1;
 }
