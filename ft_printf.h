@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/21 12:26:30 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/22 16:07:53 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ va_list				*flag_p(va_list ap, t_data *data);
 
 void				exec_specifier(char c, va_list ap, t_data *data);
 void				exec_flag(char c, t_data *data);
+
+void				print_percentage(t_data *data);
 
 typedef struct		s_func
 {

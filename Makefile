@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/02/21 12:31:12 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/02/22 16:08:13 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)/libft/ft_putchar.c\
 		$(SRC)/libft/ft_atoi.c\
 		$(SRC)/libft/ft_countdigits_base.c\
-		$(SRC)/libft/ft_isdigit.c
+		$(SRC)/libft/ft_isdigit.c\
+		$(SRC)/print_percentage.c
 
 OBJ = $(FILES:.c=.o)
 
