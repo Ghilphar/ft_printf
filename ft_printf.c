@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/22 16:00:09 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/22 16:28:04 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (format[data.j] != '\0')
 	{
-		if (format[data.j] == '%')
+		while (format[data.j] == '%')
 		{
 			data.j++;
 			while (list_flag(format[data.j]) == 1)
@@ -128,13 +128,13 @@ int		ft_printf(const char *format, ...)
 				print_percentage(&data);
 			else if (format[data.j] != '%')
 				exec_specifier(format[data.j++], ap, &data);
+		ft_reset_flag(&data);
 		}
 		if (format[data.j] != '\0')
 		{
 			ft_putchar(format[data.j++]);
 			data.i += 1;
 		}
-		ft_reset_flag(&data);
 	}
 	va_end(ap);
 	return (data.i);

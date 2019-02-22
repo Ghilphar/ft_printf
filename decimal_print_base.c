@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/21 12:08:44 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/22 16:26:12 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,10 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 		j++;
 	}
 	data->i += data->digits;
-	test_2(data);
 	if ((data->specifier == 'o' || data->specifier == 'x' ||
 				data->specifier == 'X') && data->sharp == 1)
 		test_3(data, j);
+	test_2(data);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';

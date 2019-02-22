@@ -6,20 +6,19 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 16:15:07 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/21 12:30:13 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/22 17:21:37 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int			test1(t_data *data, long long nb, char *base)
 {
-	int		tab[100];
 	int		b;
 	int		j;
 
 	j = 1;
-	tab[0] = 0;
 	data->neg = 1;
 	if (nb <= 0)
 	{
@@ -35,11 +34,13 @@ int			test1(t_data *data, long long nb, char *base)
 
 void		test2(t_data *data)
 {
-	if (data->precision != 0)
+	if (data->precision != -1)
 		data->zero = 0;
 	if (data->precision < data->digits)
 		data->precision = data->digits;
 	data->field -= data->precision;
+	if (data->zero == 1 && data->minus == 0)
+		test3(data);
 	while (data->field > 1 && data->minus == 0)
 	{
 		if (data->zero == 1)
@@ -49,6 +50,8 @@ void		test2(t_data *data)
 		data->field -= 1;
 		data->i += 1;
 	}
+	if (data->zero == 1)
+		ft_putchar('0');
 }
 
 void		test3(t_data *data)
