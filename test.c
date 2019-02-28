@@ -16,13 +16,7 @@
 
 int main ()
 {
-	char 	*i = NULL;
-
-	printf("%++ lld", -9223372036854775808);
-//	printf("%i|", ft_printf("%X\n", 4294967296));
-//	printf("%i|", ft_printf("%x\n", 42));
-//	printf("%i|", ft_printf("%o\n", 40));
-//	printf("%i|", ft_printf("%hhX\n", 4294967296));
-//	printf("%i|", ft_printf("%10.7s\n", "chien"));
+	printf("%d\n", ft_printf("%05d\n", -42));
+	printf("%d\n", printf("%05d\n", -42));
 	return(0);
 }

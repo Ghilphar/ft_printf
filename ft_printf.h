@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include <stdarg.h>
+# include <stdio.h>//
 # include <unistd.h>
 # include <inttypes.h>
 # include <stdlib.h>
@@ -34,6 +35,7 @@ typedef struct		s_data
 	int				field;
 	int				precision;
 	int				neg;
+	int				pass;
 	long long		digits;
 	char			specifier;
 }					t_data;
@@ -84,7 +86,7 @@ int					ft_printf(const char *format, ...);
 
 int					test1(t_data *data, long long nb, char *base);
 void				test2(t_data *data);
-void				test3(t_data *data);
+void				ft_sign(t_data *data);
 void				test34(t_data *data);
 void				test4(t_data *data);
 

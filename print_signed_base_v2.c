@@ -29,6 +29,8 @@ int			test1(t_data *data, long long nb, char *base)
 	}
 	b = ft_strlen(base);
 	data->digits = ft_countdigits_base(nb, b);
+	if (data->minus == 1)
+		data->zero = 0;
 	return (b);
 }
 
@@ -40,7 +42,7 @@ void		test2(t_data *data)
 		data->precision = data->digits;
 	data->field -= data->precision;
 	if (data->zero == 1 && data->minus == 0)
-		test3(data);
+		ft_sign(data);
 	while (data->field > 1 && data->minus == 0)
 	{
 		if (data->zero == 1)
@@ -50,19 +52,26 @@ void		test2(t_data *data)
 		data->field -= 1;
 		data->i += 1;
 	}
-	if (data->zero == 1)
-		ft_putchar('0');
-}
-
-void		test3(t_data *data)
+	if (data->field == 1 && data->zero == 1)
 {
-	if (data->neg == -1 || data->plus == 1 ||
-			data->zero == 1 || data->space == 1 ||
-			data->field == 1)
+		ft_putchar('0');
+		data->field -= 1;
+		data->i += 1;
+}
+/*
+	if (data->zero == 1 && data->field > 1)
 	{
 		data->i += 1;
 		data->field -= 1;
+		ft_putchar('0');
 	}
+*/
+}
+
+void		ft_sign(t_data *data)
+{
+	data->i += 1;
+	data->field -= 1;
 	if (data->neg == -1)
 		ft_putchar('-');
 	else if (data->plus == 1 && data->neg >= 0)
@@ -77,6 +86,7 @@ void		test3(t_data *data)
 		data->field += 1;
 		data->i -= 1;
 	}
+	data->pass = 1;
 }
 
 void		test34(t_data *data)

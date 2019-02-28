@@ -32,8 +32,8 @@ void		print_signed(long long nb, char *base, t_data *data)
 	}
 	data->i += data->digits;
 	test2(data);
-	if (data->zero == 0 && data->minus == 0)
-		test3(data);
+	if (data->pass == 0)
+		ft_sign(data);
 	test34(data);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];

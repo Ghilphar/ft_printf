@@ -91,6 +91,7 @@ void	ft_init_data(t_data *data, const char **format)
 	data->minus = 0;
 	data->neg = 1;
 	data->digits = 0;
+	data->pass = 0;
 	data->specifier = '|';
 }
 
@@ -107,6 +108,7 @@ void	ft_reset_flag(t_data *data)
 	data->space = 0;
 	data->neg = 1;
 	data->digits = 0;
+	data->pass = 0;
 	data->specifier = '|';
 }
 

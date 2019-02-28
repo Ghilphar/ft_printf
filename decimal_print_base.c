@@ -14,12 +14,10 @@
 
 int			test_1(t_data *data, unsigned long long nb, char *base)
 {
-	int		tab[100];
 	int		b;
 	int		j;
 
 	j = 1;
-	tab[0] = 0;
 	data->neg = 1;
 	if (nb <= 0)
 	{
