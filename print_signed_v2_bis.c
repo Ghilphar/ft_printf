@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 08:52:33 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/01 11:48:42 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/02/22 17:22:12 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void		print_signed(long long nb, char *base, t_data *data)
 	}
 	data->i += data->digits;
 	test2(data);
-	if (data->pass == 0)
-		ft_sign(data);
+	if (data->zero == 0 && data->minus == 0)
+		test3(data);
 	test34(data);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
