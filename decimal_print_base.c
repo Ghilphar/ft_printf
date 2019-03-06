@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/01 12:01:53 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/03/05 19:11:34 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,26 @@ int			test_1(t_data *data, unsigned long long nb, char *base)
 	return (b);
 }
 
-void		test_2(t_data *data)
+void		print_field(t_data *data, int j)
 {
 	if (data->precision != -1)
 		data->zero = 0;
 	if (data->precision < data->digits && data->precision != 0)
 		data->precision = data->digits;
 	data->field -= data->precision;
+	if (data->sharp == 1)
+	{
+		if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
+		{
+			data->i += 1;
+			data->field -= 1;
+		}
+		else if ((data->specifier == 'x' || data->specifier == 'X') && j != 0)
+		{
+			data->i += 2;
+			data->field -= 2;
+		}
+	}
 	while (data->field > 0 && data->minus == 0)
 	{
 		if (data->zero == 1)
@@ -67,26 +80,14 @@ void		test_4(t_data *data)
 	}
 }
 
-void		test_3(t_data *data, int j)
+void		print_sharp(t_data *data, int j)
 {
-	if (data->specifier == 'o' && j != 0)
-	{
+	if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
 		ft_putchar('0');
-		data->field -= 1;
-		data->i += 1;
-	}
 	else if (data->specifier == 'x' && j != 0)
-	{
 		ft_putstr("0x");
-		data->field -= 2;
-		data->i += 2;
-	}
 	else if (data->specifier == 'X' && j != 0)
-	{
 		ft_putstr("0X");
-		data->field -= 2;
-		data->i += 2;
-	}
 }
 
 void		print_unsigned(unsigned long long nb, char *base, t_data *data)
@@ -108,10 +109,11 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 	}
 	if (data->precision != 0)
 		data->i += data->digits;
-	if ((data->specifier == 'o' || data->specifier == 'x' ||
-				data->specifier == 'X') && data->sharp == 1)
-		test_3(data, j);
-	test_2(data);
+	if (data->sharp == 1 && data->zero == 1)
+		print_sharp(data, j);
+	print_field(data, j);
+	if (data->sharp == 1 && data->zero == 0)
+		print_sharp(data, j);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';
