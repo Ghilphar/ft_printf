@@ -30,7 +30,8 @@ void		print_signed(long long nb, char *base, t_data *data)
 		tab[j++] = nb % b;
 		nb = nb / b;
 	}
-	data->i += data->digits;
+	if (data->precision != 0 || data->neg != 2)
+		data->i += data->digits;
 	test2(data);
 	if (data->pass == 0)
 		ft_sign(data);

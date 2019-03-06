@@ -20,13 +20,15 @@ int			test1(t_data *data, long long nb, char *base)
 
 	j = 1;
 	data->neg = 1;
-	if (nb <= 0)
+	if (nb < 0)
 	{
 		nb = -nb;
 		data->neg = -1;
-		if (nb == 0)
-			data->neg = 0;
 	}
+	if (nb == 0)
+		data->neg = 0;
+	if (nb == 0 && data->precision == 0)
+			data->neg = 2;
 	b = ft_strlen(base);
 	data->digits = ft_countdigits_base(nb, b);
 	if (data->minus == 1)
@@ -38,7 +40,7 @@ void		test2(t_data *data)
 {
 	if (data->precision != -1)
 		data->zero = 0;
-	if (data->precision < data->digits)
+	if (data->precision < data->digits && data->precision != 0)
 		data->precision = data->digits;
 	data->field -= data->precision;
 	if (data->zero == 1 && data->minus == 0)
