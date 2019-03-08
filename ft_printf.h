@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/22 16:07:53 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/03/08 20:35:15 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ typedef struct		s_data
 	int				precision;
 	int				neg;
 	int				pass;
-	long long		digits;
+	int				digits;
 	char			specifier;
+	int				field_2;
 }					t_data;
 
 void				flag_h(t_data *data);
@@ -45,6 +46,7 @@ void				flag_l(t_data *data);
 
 va_list				*flag_s(va_list ap, t_data *data);
 va_list				*flag_di(va_list ap, t_data *data);
+va_list				*flag_d(va_list ap, t_data *data);
 va_list				*flag_c(va_list ap, t_data *data);
 va_list				*flag_u(va_list ap, t_data *data);
 va_list				*flag_o(va_list ap, t_data *data);
@@ -89,5 +91,6 @@ void				test2(t_data *data);
 void				ft_sign(t_data *data);
 void				test34(t_data *data);
 void				test4(t_data *data);
+void				ft_putstr(char const *str);
 
 #endif

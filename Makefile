@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/02/22 16:08:13 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/03/08 20:38:00 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ AR = ar rc
 SRC = ./
 FILES = $(SRC)flag_s.c\
 		$(SRC)flag_di.c\
+		$(SRC)flag_d.c\
 		$(SRC)flag_c.c\
 		$(SRC)flag_u.c\
 		$(SRC)flag_o.c\
@@ -37,7 +38,11 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)/libft/ft_putchar.c\
 		$(SRC)/libft/ft_atoi.c\
 		$(SRC)/libft/ft_countdigits_base.c\
+		$(SRC)/libft/ft_countdigits.c\
 		$(SRC)/libft/ft_isdigit.c\
+		$(SRC)/libft/ft_itoa.c\
+		$(SRC)/libft/ft_strrev.c\
+		$(SRC)/libft/ft_putstr.c\
 		$(SRC)/print_percentage.c
 
 OBJ = $(FILES:.c=.o)
