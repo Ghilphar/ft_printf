@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 14:33:41 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/08 21:36:27 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/03/11 19:08:39 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	print_field_sign(t_data *data)
 	if (i > 0 && (data->zero == 0 && data->minus == 0))
 	{
 		ft_putnchar(' ', i);
-		//		write(1, " ", i);
 		data->i += i;
 	}
 	if (data->plus == 1)
@@ -94,7 +93,6 @@ void	print_field_sign(t_data *data)
 	if (i > 0 && data->zero == 1)
 	{
 		ft_putnchar('0', i);
-		//		write(1, "0", i);
 		data->i += i;
 	}
 }
@@ -107,7 +105,7 @@ char	*ft_itoa_llu(unsigned long long n)
 
 	i = 0;
 	nb = ft_countdigits(n);
-	if (!(str = (char *)malloc(sizeof(*str) *  (nb + 1))))
+	if (!(str = (char *)malloc(sizeof(*str) *  (nb + 2))))
 		return (NULL);
 	while (nb-- > 0)
 	{
@@ -125,7 +123,6 @@ void	print_minus(t_data *data)
 	i = data->field - data->field_2;
 	data->i += i;
 	ft_putnchar(' ', i);
-	//	write(1, " ", i);
 }
 
 void	print_d(unsigned long long n, t_data *data)
@@ -135,7 +132,7 @@ void	print_d(unsigned long long n, t_data *data)
 
 	correct_flag(n, data);
 	print_field_sign(data);
-	nb = ft_itoa(n);
+	nb = ft_itoa_llu(n);
 	i = data->precision - data->digits;
 	if (data->precision > data->digits)
 	{
@@ -163,7 +160,6 @@ void	print_d2(long long nb, t_data *data)
 	else
 		n = nb;
 	print_d(n, data);
-
 }
 
 va_list *flag_d(va_list ap, t_data *data)

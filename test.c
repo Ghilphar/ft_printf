@@ -6,17 +6,23 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 10:58:06 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/05 19:12:47 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/03/11 20:38:31 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
 #include "./libft/libft.h"
+#include "ft_printf_test.h"
 
 int main ()
 {
-	printf("@moulitest: %.d %.0d\n", 0, 0);
-	ft_printf("@moulitest: %.d %.0d", 0, 0);
-	return(0);
+	int nb = 56432;
+
+//	ft_printf("min long long :  %20lld\n",LLONG_MIN);
+
+	ft_printf("%lld\n", -9223372036854775808);
+//	printf("min long long :  %25lld\n",LLONG_MIN);
+
+	return (0);
 }
