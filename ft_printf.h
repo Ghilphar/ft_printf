@@ -92,5 +92,6 @@ void				ft_sign(t_data *data);
 void				test34(t_data *data);
 void				test4(t_data *data);
 void				ft_putstr(char const *str);
+void				print_sharp(t_data *data, int j);
 
 #endif

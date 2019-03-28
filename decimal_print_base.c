@@ -35,13 +35,20 @@ void		print_field(t_data *data, int j)
 {
 	if (data->precision != -1)
 		data->zero = 0;
-	if (data->precision < data->digits && data->precision != 0)
+	if (data->precision < data->digits /*&& data->precision != 0*/)
 		data->precision = data->digits;
-	data->field -= data->precision;
+    data->field -= data->precision;
+    while(data->field > 0 && data->minus == 0 && data->zero == 0)
+    {
+        ft_putchar(' ');
+        data->field -= 1;
+        data->i += 1;
+    }
 	if (data->sharp == 1)
 	{
 		if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
 		{
+		    data->precision -= 1;
 			data->i += 1;
 			data->field -= 1;
 		}
@@ -51,12 +58,12 @@ void		print_field(t_data *data, int j)
 			data->field -= 2;
 		}
 	}
-	while (data->field > 0 && data->minus == 0)
+
+	if (data->sharp == 1 /*&& data->zero == 0*/)
+		print_sharp(data, j);
+	while (data->field > 0 && data->minus == 0 && data->zero == 1)
 	{
-		if (data->zero == 1)
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
+	    ft_putchar('0');
 		data->field -= 1;
 		data->i += 1;
 	}
@@ -109,11 +116,7 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 	}
 	if (data->precision != 0)
 		data->i += data->digits;
-	if (data->sharp == 1 && data->zero == 1)
-		print_sharp(data, j);
 	print_field(data, j);
-	if (data->sharp == 1 && data->zero == 0)
-		print_sharp(data, j);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';
