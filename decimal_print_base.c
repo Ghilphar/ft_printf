@@ -34,7 +34,7 @@ int			w_base(t_data *data, unsigned long long nb, char *base)
 void		print_field(t_data *data, int j) {
     if (data->precision != -1)
         data->zero = 0;
-    if (data->precision == 0 && (data->specifier == 'o' || data->specifier == 'x'))
+    if ((data->precision == 0 && j == 0) && (data->specifier == 'o' || data->specifier == 'u' || data->specifier == 'x' || data->specifier == 'X'))
         data->pass = 666;
 	if (data->precision < data->digits && data->pass != 666)
 		data->precision = data->digits;
@@ -42,10 +42,9 @@ void		print_field(t_data *data, int j) {
     {
         if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
         {
-            if (data->precision != data->digits)
+            if (data->precision != data->digits && data->pass != 666)
                 data->precision -= 1;
-            if (data->pass != 666)
-                data->i += 1;
+            data->i += 1;
             data->field -= 1;
         }
         else if ((data->specifier == 'x' || data->specifier == 'X') && j != 0)
