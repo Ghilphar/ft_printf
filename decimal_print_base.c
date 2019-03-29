@@ -31,12 +31,29 @@ int			test_1(t_data *data, unsigned long long nb, char *base)
 	return (b);
 }
 
-void		print_field(t_data *data, int j)
-{
-	if (data->precision != -1)
-		data->zero = 0;
-	if (data->precision < data->digits /*&& data->precision != 0*/)
+void		print_field(t_data *data, int j) {
+    if (data->precision != -1)
+        data->zero = 0;
+    if (data->precision == 0 && (data->specifier == 'o' || data->specifier == 'x'))
+        data->pass = 666;
+	if (data->precision < data->digits && data->pass != 666)
 		data->precision = data->digits;
+    if (data->sharp == 1)
+    {
+        if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
+        {
+            if (data->precision != data->digits)
+                data->precision -= 1;
+            if (data->pass != 666)
+                data->i += 1;
+            data->field -= 1;
+        }
+        else if ((data->specifier == 'x' || data->specifier == 'X') && j != 0)
+        {
+            data->i += 2;
+            data->field -= 2;
+        }
+    }
     data->field -= data->precision;
     while(data->field > 0 && data->minus == 0 && data->zero == 0)
     {
@@ -45,21 +62,6 @@ void		print_field(t_data *data, int j)
         data->i += 1;
     }
 	if (data->sharp == 1)
-	{
-		if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
-		{
-		    data->precision -= 1;
-			data->i += 1;
-			data->field -= 1;
-		}
-		else if ((data->specifier == 'x' || data->specifier == 'X') && j != 0)
-		{
-			data->i += 2;
-			data->field -= 2;
-		}
-	}
-
-	if (data->sharp == 1 /*&& data->zero == 0*/)
 		print_sharp(data, j);
 	while (data->field > 0 && data->minus == 0 && data->zero == 1)
 	{
@@ -74,7 +76,10 @@ void		print_field(t_data *data, int j)
 		data->precision--;
 	}
 	if (data->neg == 0 && data->precision != 0)
-		ft_putchar('0');
+	{
+        ft_putchar('0');
+        data->i += 1;
+    }
 }
 
 void		test_4(t_data *data)
@@ -90,7 +95,7 @@ void		test_4(t_data *data)
 void		print_sharp(t_data *data, int j)
 {
 	if ((data->precision == 0 && data->specifier == 'o') || (data->specifier == 'o' && j != 0))
-		ft_putchar('0');
+	    ft_putchar('0');
 	else if (data->specifier == 'x' && j != 0)
 		ft_putstr("0x");
 	else if (data->specifier == 'X' && j != 0)
@@ -114,9 +119,11 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 		nb = nb / b;
 		j++;
 	}
-	if (data->precision != 0)
-		data->i += data->digits;
+	if (j != 0)
+	    data->i += data->digits;
 	print_field(data, j);
+    /*if (data->pass != 666)
+        data->i -= data->digits;*/
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';
