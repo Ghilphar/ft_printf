@@ -17,11 +17,7 @@ void	print_str(char *s, t_data *data)
 	int i;
 
 	if (!s)
-	{
-		write(1, "(null)", 6);
-		data->i += 6;
-		return ;
-	}
+		s = "(null)";
 	i = ft_strlen(s);
 	if (data->precision > i || data->precision == -1)
 		data->precision = i;

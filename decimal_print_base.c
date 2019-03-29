@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int			test_1(t_data *data, unsigned long long nb, char *base)
+int			w_base(t_data *data, unsigned long long nb, char *base)
 {
 	int		b;
 	int		j;
@@ -112,7 +112,7 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 
 	j = 0;
 	i = 0;
-	b = test_1(data, nb, base);
+	b = w_base(data, nb, base);
 	while (nb != 0)
 	{
 		tab[j] = nb % b;
@@ -122,8 +122,11 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 	if (j != 0)
 	    data->i += data->digits;
 	print_field(data, j);
-    /*if (data->pass != 666)
-        data->i -= data->digits;*/
+    if (data->specifier == 'p')
+    {
+        ft_putstr("0x");
+        data->i += 2;
+    }
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';

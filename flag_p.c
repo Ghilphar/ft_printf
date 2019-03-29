@@ -18,8 +18,7 @@ va_list			*flag_p(va_list ap, t_data *data)
 
 	data->specifier = 'p';
 	adress = (uintptr_t)(va_arg(ap, void*));
-	ft_putstr("0x");
-	data->i += 2;
+	data->field -= 2;
 	print_unsigned(adress, "0123456789abcdef", data);
 	return (0);
 }
