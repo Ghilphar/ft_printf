@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/08 20:35:15 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:12:10 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ va_list				*flag_o(va_list ap, t_data *data);
 va_list				*flag_x(va_list ap, t_data *data);
 va_list				*flag_xx(va_list ap, t_data *data);
 va_list				*flag_p(va_list ap, t_data *data);
+va_list				*flag_f(va_list ap, t_data *data);
 
 void				exec_specifier(char c, va_list ap, t_data *data);
 void				exec_flag(char c, t_data *data);

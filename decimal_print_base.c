@@ -6,13 +6,13 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/05 19:11:34 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:11:46 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			w_base(t_data *data, unsigned long long nb, char *base)
+int			get_base(t_data *data, unsigned long long nb, char *base)
 {
 	int		b;
 	int		j;
@@ -111,7 +111,7 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 
 	j = 0;
 	i = 0;
-	b = w_base(data, nb, base);
+	b = get_base(data, nb, base);
 	while (nb != 0)
 	{
 		tab[j] = nb % b;
