@@ -6,11 +6,13 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:02:28 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/03 17:22:59 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:56:23 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	print_field(t_data *data)
+#include "ft_printf.h"
+
+void	print_fil(t_data *data)
 {
 	while (data->field > data->field_2 && data->minus == 0 && data->zero == 0)
 	{
@@ -72,11 +74,11 @@ long double	correct_flags(long double n, t_data *data)
 	return (n);
 }
 
-void		reverse(char *dest, char *p)
+void		reverse(char *p, char *q)
 {
 	char c;
 
-	while (dest++ < p--)
+	while (p++ < q--)
 	{
 		c = *p;
 		*p = *q;
@@ -84,7 +86,7 @@ void		reverse(char *dest, char *p)
 	}
 }
 
-char		*round(char *s, char *f)
+char		*incr(char *s, char *f)
 {
 	int		co;
 	char	*t = f;
@@ -103,7 +105,7 @@ char		*round(char *s, char *f)
 	}
 	if (co)
 	{
-		t = ++f
+		t = ++f;
 		while (t > s)
 		{
 			*t = *(t - 1);
@@ -118,16 +120,16 @@ char		*ftoa_integer(long double n, t_data *data, char *dest)
 {
 	long long		integer;
 	int				i;
-	char			p;
+	char			*p;
 
-	dest = p;
+	p = dest;
 	i = 0;
 	integer = (long long)n;
 	if (integer)
 	{
 		while (integer && i++ <= data->digits)
 		{
-			*p++ = '0' + integer % 10;
+			*p++ = ('0' + (integer % 10));
 			integer /= 10;
 		}
 		reverse(dest, p - 1);
@@ -135,8 +137,8 @@ char		*ftoa_integer(long double n, t_data *data, char *dest)
 	else
 		*dest++ = '0';
 //	if (data->precision == 0)
-//		round_up;
-	return (dest);
+//		round_up();
+	return (p);
 }
 
 char		*ftoa_decimal(long double n, t_data *data, char *dest, char *s)
@@ -156,7 +158,7 @@ char		*ftoa_decimal(long double n, t_data *data, char *dest, char *s)
 	}
 	decimal *= 10;
 	if ((int)decimal > 5)
-		dest = inc(s, dest) + 1;
+		dest = incr(s, dest - 1) + 1;
 	return (dest);
 }
 
@@ -168,15 +170,17 @@ va_list	*flag_f(va_list ap, t_data *data)
 	char			*s;
 
 	n = va_arg(ap, long double);
-	n = correct_flags(n, *data);
-	print_field(*data);
-	if (!(save = (char *)malloc(sizeof(str) * (data->field_2 + 1))))
+	n = correct_flags(n, data);
+	print_fil(data);
+	if (!(save = (char *)malloc(sizeof(save) * (data->field_2 + 1))))
 		return (NULL);
 	p = save;
 	s = save;
-	p = ftoa_integer(n, *data, p);
+	p = ftoa_integer(n, data, p);
 	if (data->precision != 0)
-		p = ftoa_decimal(n, *data, p, s);
-
+		p = ftoa_decimal(n, data, p, s);
+	*p = '\0';
+	ft_putstr(save);
+	free(save);
 	return (0);
 }

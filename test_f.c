@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void reverse(char* p, char* q)
+void reverse(char *p, char *q)
 {
 	char c;
 
