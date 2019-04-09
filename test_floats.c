@@ -3,7 +3,7 @@
 
 int main()
 {
-	long double a = 98.686;
+	long double a = 0.556;
 
-	ft_printf("%10f", a);
+	ft_printf("%.2f", a);
 }

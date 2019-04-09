@@ -6,13 +6,13 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:02:28 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/08 17:56:23 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:52:19 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_fil(t_data *data)
+void			print_fil(t_data *data)
 {
 	while (data->field > data->field_2 && data->minus == 0 && data->zero == 0)
 	{
@@ -32,9 +32,9 @@ void	print_fil(t_data *data)
 		ft_putchar('+');
 }
 
-int		ft_exponent(unsigned long long n)
+int				ft_exponent(unsigned long long n)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	if (n == 0)
@@ -47,7 +47,7 @@ int		ft_exponent(unsigned long long n)
 	return (i);
 }
 
-long double	correct_flags(long double n, t_data *data)
+long double		correct_flags(long double n, t_data *data)
 {
 	data->specifier = 'f';
 	if (data->plus == 1)
@@ -74,28 +74,34 @@ long double	correct_flags(long double n, t_data *data)
 	return (n);
 }
 
-void		reverse(char *p, char *q)
+void			reverse(char *p, char *q)
 {
-	char c;
+	char		c;
 
-	while (p++ < q--)
+	while (p < q)
 	{
 		c = *p;
 		*p = *q;
 		*q = c;
+		q--;
+		p++;
 	}
 }
 
-char		*incr(char *s, char *f)
+char			*incr(char *s, char *f)
 {
-	int		co;
-	char	*t = f;
+	int			co;
+	char		*t;
 
 	co = 1;
+	t = f;
 	while (t >= s && co == 1)
 	{
 		if (*t == '.')
+		{
+			t--;
 			continue;
+		}
 		*t += co;
 		if (*t > '9')
 			*t = '0';
@@ -103,24 +109,14 @@ char		*incr(char *s, char *f)
 			co = 0;
 		t--;
 	}
-	if (co)
-	{
-		t = ++f;
-		while (t > s)
-		{
-			*t = *(t - 1);
-			*s = '1';
-			t--;
-		}
-	}
 	return (f);
 }
 
-char		*ftoa_integer(long double n, t_data *data, char *dest)
+char			*ftoa_integer(long double n, t_data *data, char *dest)
 {
-	long long		integer;
-	int				i;
-	char			*p;
+	long long	integer;
+	int			i;
+	char		*p;
 
 	p = dest;
 	i = 0;
@@ -135,13 +131,14 @@ char		*ftoa_integer(long double n, t_data *data, char *dest)
 		reverse(dest, p - 1);
 	}
 	else
+	{
 		*dest++ = '0';
-//	if (data->precision == 0)
-//		round_up();
+		p++;
+	}
 	return (p);
 }
 
-char		*ftoa_decimal(long double n, t_data *data, char *dest, char *s)
+char			*ftoa_decimal(long double n, t_data *data, char *dest, char *s)
 {
 	int			precision;
 	long double	decimal;
@@ -162,12 +159,12 @@ char		*ftoa_decimal(long double n, t_data *data, char *dest, char *s)
 	return (dest);
 }
 
-va_list	*flag_f(va_list ap, t_data *data)
+va_list			*flag_f(va_list ap, t_data *data)
 {
-	long double		n;
-	char			*save;
-	char			*p;
-	char			*s;
+	long double	n;
+	char		*save;
+	char		*p;
+	char		*s;
 
 	n = va_arg(ap, long double);
 	n = correct_flags(n, data);
