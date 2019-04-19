@@ -6,13 +6,13 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 05:24:04 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/05 12:23:42 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:29:52 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_c(unsigned char j, t_data *data)
+void				print_c(unsigned char j, t_data *data)
 {
 	while (data->field > 1 && data->minus == 0)
 	{
@@ -21,7 +21,7 @@ void	print_c(unsigned char j, t_data *data)
 		data->i += 1;
 	}
 	ft_putchar(j);
-	data->i += 1; 
+	data->i += 1;
 	while (data->field > 1 && data->minus == 1)
 	{
 		ft_putchar(' ');
@@ -35,7 +35,7 @@ va_list				*flag_c(va_list ap, t_data *data)
 	int				i;
 	unsigned int	j;
 
-	data->specifier = 'c';
+	data->spe = 'c';
 	i = va_arg(ap, int);
 	j = (unsigned int)i;
 	print_c(j, data);

@@ -6,14 +6,14 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 16:15:07 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/11 19:52:15 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:55:44 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int			test1(t_data *data, long long nb, char *base)
+int			check_nb(t_data *data, long long nb, char *base)
 {
 	int		b;
 	int		j;
@@ -36,8 +36,10 @@ int			test1(t_data *data, long long nb, char *base)
 	return (b);
 }
 
-void		test2(t_data *data)
+void		print_fill(t_data *data)
 {
+	if (data->precision != 0 || data->neg != 2)
+		data->i += data->digits;
 	if (data->precision != -1)
 		data->zero = 0;
 	if (data->precision < data->digits && data->precision != 0)
@@ -55,12 +57,11 @@ void		test2(t_data *data)
 		data->i += 1;
 	}
 	if (data->field == 1 && data->zero == 1)
-{
+	{
 		ft_putchar('0');
 		data->field -= 1;
 		data->i += 1;
-}
-
+	}
 }
 
 void		ft_sign(t_data *data)
@@ -84,8 +85,10 @@ void		ft_sign(t_data *data)
 	data->pass = 1;
 }
 
-void		test34(t_data *data)
+void		print_prec(t_data *data)
 {
+	if (data->pass == 0)
+		ft_sign(data);
 	while (data->precision > data->digits)
 	{
 		ft_putchar('0');
@@ -94,7 +97,7 @@ void		test34(t_data *data)
 	}
 }
 
-void		test4(t_data *data)
+void		print_min(t_data *data)
 {
 	while (data->field > 0 && data->minus == 1)
 	{

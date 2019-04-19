@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_x.c                                           :+:      :+:    :+:   */
+/*   flag_xX.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:22:55 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/21 12:22:39 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:06:19 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-va_list	*flag_x(va_list ap, t_data *data)
+va_list *flag_x(va_list ap, t_data *data)
 {
-	data->specifier = 'x';
+	data->spe = 'x';
 	if (data->casth != 0)
 	{
 		if (data->casth == 1)
@@ -32,16 +32,16 @@ va_list	*flag_x(va_list ap, t_data *data)
 					"0123456789abcdef", data);
 		if (data->castl == 2)
 			print_unsigned((unsigned long long)va_arg(ap, unsigned long long),
-					"0123456789abcdef", data);
+			"0123456789abcdef", data);
 		return (0);
 	}
 	print_unsigned(va_arg(ap, unsigned int), "0123456789abcdef", data);
 	return (0);
 }
 
-va_list	*flag_xx(va_list ap, t_data *data)
+va_list *flag_xx(va_list ap, t_data *data)
 {
-	data->specifier = 'X';
+	data->spe = 'X';
 	if (data->casth != 0)
 	{
 		if (data->casth == 1)

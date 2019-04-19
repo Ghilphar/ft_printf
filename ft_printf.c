@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/01 15:01:13 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:54:16 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	ft_init_data(t_data *data, const char **format)
 	data->neg = 1;
 	data->digits = 0;
 	data->pass = 0;
-	data->specifier = '|';
+	data->spe = '|';
 }
 
 void	ft_reset_flag(t_data *data)
@@ -110,7 +110,7 @@ void	ft_reset_flag(t_data *data)
 	data->neg = 1;
 	data->digits = 0;
 	data->pass = 0;
-	data->specifier = '|';
+	data->spe = '|';
 }
 
 int		ft_printf(const char *format, ...)

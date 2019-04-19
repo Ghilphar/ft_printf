@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 14:33:41 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/11 19:08:39 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:37:22 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ void	print_d2(long long nb, t_data *data)
 
 va_list *flag_d(va_list ap, t_data *data)
 {
-	data->specifier = 'd';
+	data->spe = 'd';
 	if (data->casth != 0)
 	{
 		if (data->casth == 1)

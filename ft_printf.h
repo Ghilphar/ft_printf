@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/01 15:12:10 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:56:50 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 # include "libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>//
 # include <unistd.h>
-# include <inttypes.h>
 # include <stdlib.h>
 
 typedef struct		s_data
@@ -37,7 +35,7 @@ typedef struct		s_data
 	int				neg;
 	int				pass;
 	int				digits;
-	char			specifier;
+	char			spe;
 	int				field_2;
 }					t_data;
 
@@ -46,7 +44,6 @@ void				flag_l(t_data *data);
 
 va_list				*flag_s(va_list ap, t_data *data);
 va_list				*flag_di(va_list ap, t_data *data);
-va_list				*flag_d(va_list ap, t_data *data);
 va_list				*flag_c(va_list ap, t_data *data);
 va_list				*flag_u(va_list ap, t_data *data);
 va_list				*flag_o(va_list ap, t_data *data);
@@ -54,6 +51,10 @@ va_list				*flag_x(va_list ap, t_data *data);
 va_list				*flag_xx(va_list ap, t_data *data);
 va_list				*flag_p(va_list ap, t_data *data);
 va_list				*flag_f(va_list ap, t_data *data);
+
+void				print_pointer(t_data *data);
+void				print_sharp(t_data *data, int j);
+void				print_field_2(t_data *data, int j);
 
 void				exec_specifier(char c, va_list ap, t_data *data);
 void				exec_flag(char c, t_data *data);
@@ -87,11 +88,11 @@ void				flag_field(t_data *data);
 void				flag_precision(t_data *data);
 int					ft_printf(const char *format, ...);
 
-int					test1(t_data *data, long long nb, char *base);
-void				test2(t_data *data);
+int					check_nb(t_data *data, long long nb, char *base);
+void				print_fill(t_data *data);
 void				ft_sign(t_data *data);
-void				test34(t_data *data);
-void				test4(t_data *data);
+void				print_prec(t_data *data);
+void				print_min(t_data *data);
 void				ft_putstr(char const *str);
 void				print_sharp(t_data *data, int j);
 

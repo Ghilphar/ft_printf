@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 05:18:47 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/22 16:32:20 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:51:50 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 va_list	*flag_di(va_list ap, t_data *data)
 {
-	data->specifier = 'd';
+	data->spe = 'd';
 	if (data->casth != 0)
 	{
 		if (data->casth == 1)

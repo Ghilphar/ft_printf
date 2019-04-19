@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:02:28 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/09 17:52:19 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:52:15 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int				ft_exponent(unsigned long long n)
 
 long double		correct_flags(long double n, t_data *data)
 {
-	data->specifier = 'f';
+	data->spe = 'f';
 	if (data->plus == 1)
 		data->space = 0;
 	if (data->minus == 1)

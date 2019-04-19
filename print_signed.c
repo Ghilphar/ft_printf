@@ -6,7 +6,7 @@
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 08:52:33 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/03/11 20:38:10 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:55:53 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		print_signed(long long nb, char *base, t_data *data)
 
 	j = 0;
 	i = 0;
-	b = test1(data, nb, base);
+	b = check_nb(data, nb, base);
 	if (nb < 0)
 		nb = -nb;
 	while (nb != 0)
@@ -30,17 +30,13 @@ void		print_signed(long long nb, char *base, t_data *data)
 		tab[j++] = nb % b;
 		nb = nb / b;
 	}
-	if (data->precision != 0 || data->neg != 2)
-		data->i += data->digits;
-	test2(data);
-	if (data->pass == 0)
-		ft_sign(data);
-	test34(data);
+	print_fill(data);
+	print_prec(data);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';
 	if (data->neg == 0)
 		ft_putchar('0');
 	ft_putstr(tab2);
-	test4(data);
+	print_min(data);
 }

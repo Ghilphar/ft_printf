@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_p.c                                           :+:      :+:    :+:   */
+/*   decimal_print_base_anex.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/20 05:37:34 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/19 15:52:40 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/04/19 15:58:56 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/04/19 16:30:33 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-va_list			*flag_p(va_list ap, t_data *data)
+void	print_pointer(t_data *data)
 {
-	uintptr_t	adress;
+	if (data->spe == 'p')
+	{
+		ft_putstr("0x");
+		data->i += 2;
+	}
+}
 
-	data->spe = 'p';
-	adress = (uintptr_t)(va_arg(ap, void*));
-	data->field -= 2;
-	print_unsigned(adress, "0123456789abcdef", data);
-	return (0);
+void	print_sharp(t_data *data, int j)
+{
+	if ((data->precision == 0 && data->spe == 'o')
+			|| (data->spe == 'o' && j != 0))
+		ft_putchar('0');
+	else if (data->spe == 'x' && j != 0)
+		ft_putstr("0x");
+	else if (data->spe == 'X' && j != 0)
+		ft_putstr("0X");
 }

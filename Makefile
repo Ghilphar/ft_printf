@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/04/08 16:11:30 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/04/19 16:37:37 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,10 @@ AR = ar rc
 SRC = ./
 FILES = $(SRC)flag_s.c\
 		$(SRC)flag_di.c\
-		$(SRC)flag_d.c\
 		$(SRC)flag_c.c\
 		$(SRC)flag_u.c\
 		$(SRC)flag_o.c\
-		$(SRC)flag_xX.c\
+		$(SRC)flag_x.c\
 		$(SRC)flag_h_v2.c\
 		$(SRC)flag_l_v2.c\
 		$(SRC)flag_p.c\
@@ -44,7 +43,8 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)/libft/ft_itoa.c\
 		$(SRC)/libft/ft_strrev.c\
 		$(SRC)/libft/ft_putstr.c\
-		$(SRC)/print_percentage.c
+		$(SRC)/print_percentage.c\
+		$(SRC)/decimal_print_base_anex.c\
 
 OBJ = $(FILES:.c=.o)
 
