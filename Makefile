@@ -6,7 +6,7 @@
 #    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/04/19 16:37:37 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/04/23 16:04:21 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -I ./includes
 AR = ar rc
-SRC = ./
+SRC = ./Srcs/
 FILES = $(SRC)flag_s.c\
 		$(SRC)flag_di.c\
 		$(SRC)flag_c.c\
@@ -25,6 +25,7 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)flag_l_v2.c\
 		$(SRC)flag_p.c\
 		$(SRC)flag_f.c\
+		$(SRC)flag_f_2.c\
 		$(SRC)flags.c\
 		$(SRC)list_flag.c\
 		$(SRC)flag_field.c\
@@ -33,16 +34,15 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)print_signed_base_v2.c\
 		$(SRC)print_signed.c\
 		$(SRC)ft_printf.c\
-		$(SRC)/libft/ft_putstr.c\
-		$(SRC)/libft/ft_strlen.c\
-		$(SRC)/libft/ft_putchar.c\
-		$(SRC)/libft/ft_atoi.c\
-		$(SRC)/libft/ft_countdigits_base.c\
-		$(SRC)/libft/ft_countdigits.c\
-		$(SRC)/libft/ft_isdigit.c\
-		$(SRC)/libft/ft_itoa.c\
-		$(SRC)/libft/ft_strrev.c\
-		$(SRC)/libft/ft_putstr.c\
+		$(SRC)/ft_putstr.c\
+		$(SRC)/ft_strlen.c\
+		$(SRC)/ft_putchar.c\
+		$(SRC)/ft_atoi.c\
+		$(SRC)/ft_countdigits_base.c\
+		$(SRC)/ft_countdigits.c\
+		$(SRC)/ft_isdigit.c\
+		$(SRC)/ft_itoa.c\
+		$(SRC)/ft_strrev.c\
 		$(SRC)/print_percentage.c\
 		$(SRC)/decimal_print_base_anex.c\
 
