@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 16:05:03 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/02 20:37:12 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ va_list				*flag_xx(va_list ap, t_data *data);
 va_list				*flag_p(va_list ap, t_data *data);
 va_list				*flag_f(va_list ap, t_data *data);
 
-void				print_pointer(t_data *data);
+void				print_pointer(t_data *data, int j);
 void				print_sharp(t_data *data, int j);
 void				print_field_2(t_data *data, int j);
 

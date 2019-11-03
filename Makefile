@@ -3,18 +3,44 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/04/23 16:04:21 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/11/03 10:45:17 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+LIBFT = libft
+DIR_S = srcs
+DIR_O = obj
+HEADER = includes
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -I ./includes
-AR = ar rc
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 SRC = ./Srcs/
+
+SOURCES = 	flag_s.c\
+			flag_di.c\
+			flag_c.c\
+			flag_u.c\
+			flag_o.c\
+			flag_x.c\
+			flag_h_v2.c\
+			flag_l_v2.c\
+			flag_p.c\
+			flag_f.c\
+			flag_f_2.c\
+			flags.c\
+			list_flag.c\
+			flag_field.c\
+			flag_precision.c\
+			decimal_print_base.c\
+			print_signed_base_v2.c\
+			print_signed.c\
+			ft_printf.c\
+			print_percentage.c\
+			decimal_print_base_anex.c
+
 FILES = $(SRC)flag_s.c\
 		$(SRC)flag_di.c\
 		$(SRC)flag_c.c\
@@ -44,20 +70,34 @@ FILES = $(SRC)flag_s.c\
 		$(SRC)/ft_itoa.c\
 		$(SRC)/ft_strrev.c\
 		$(SRC)/print_percentage.c\
-		$(SRC)/decimal_print_base_anex.c\
+		$(SRC)/decimal_print_base_anex.c
 
-OBJ = $(FILES:.c=.o)
+SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
+
+OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 
 all : $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME): $(OBJS)
+	@make -C $(LIBFT)
+	@cp libft/libft.a ./$(NAME)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+	@echo "libftprintf.a successfully created"
+
+$(DIR_O)/%.o: $(DIR_S)/%.c $(HEADER)/ft_printf.h
+	@mkdir -p obj
+	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
 
 clean :
-	rm -f $(OBJ)
+	@rm -f $(OBJS)
+	@rm -rf $(DIR_O)
+	@make clean -C $(LIBFT)
+	@echo "libftprintf clean OK"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT)
+	@echo "libftprintf fclean OK"
 
 re: fclean all

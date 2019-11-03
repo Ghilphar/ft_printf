@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   decimal_print_base.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 09:18:16 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/19 15:59:48 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/02 20:34:13 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void		print_field_2(t_data *data, int j)
 		data->i += 1;
 		data->precision--;
 	}
-	if (data->neg == 0 && data->precision != 0)
+	if (data->neg == 0 && data->precision != 0 && data->spe != 'p')
 	{
 		ft_putchar('0');
 		data->i += 1;
@@ -112,14 +112,14 @@ void		print_unsigned(unsigned long long nb, char *base, t_data *data)
 	b = get_base(data, nb, base);
 	while (nb != 0)
 	{
-		tab[j] = nb % b;
+		tab[j++] = nb % b;
 		nb = nb / b;
-		j++;
+		data->digits = j;
 	}
 	if (j != 0)
 		data->i += data->digits;
 	print_field(data, j);
-	print_pointer(data);
+	print_pointer(data, j);
 	while (--j >= 0)
 		tab2[i++] = base[tab[j]];
 	tab2[i] = '\0';

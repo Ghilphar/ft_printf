@@ -3,21 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   decimal_print_base_anex.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:58:56 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/19 16:30:33 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/02 20:39:09 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_pointer(t_data *data)
+void	print_pointer(t_data *data, int j)
 {
 	if (data->spe == 'p')
 	{
 		ft_putstr("0x");
 		data->i += 2;
+	}
+	if (j == 0 && data->spe == 'p')
+	{
+		ft_putchar('0');
+		data->i += 1;
 	}
 }
 

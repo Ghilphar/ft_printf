@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_signed_base.c                                :+:      :+:    :+:   */
+/*   print_signed_base_v2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 16:15:07 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 15:03:23 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:28:40 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int			check_nb(t_data *data, long long nb, char *base)
 {
@@ -42,7 +41,7 @@ void		print_fill(t_data *data)
 		data->i += data->digits;
 	if (data->precision != -1)
 		data->zero = 0;
-	if (data->precision < data->digits && data->precision != 0)
+	if (data->precision < data->digits /* && data->precision != 0*/)
 		data->precision = data->digits;
 	data->field -= data->precision;
 	if (data->zero == 1 && data->minus == 0)

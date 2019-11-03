@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   print_signed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 08:52:33 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/19 16:55:53 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:03:16 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 void		print_signed(long long nb, char *base, t_data *data)
 {
@@ -20,6 +21,7 @@ void		print_signed(long long nb, char *base, t_data *data)
 	int		j;
 	int		i;
 
+	// printf("field = %d\n, precision = %d\n", data->field, data->precision);
 	j = 0;
 	i = 0;
 	b = check_nb(data, nb, base);
