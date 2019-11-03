@@ -3,17 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   flag_f.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:02:28 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 15:18:51 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:21:24 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void			print_fil(t_data *data)
 {
+	if (data->space == 1 && data->neg != -1)
+	{
+		ft_putchar(' ');
+		data->field -= 1;
+		data->i += 1;
+	}
 	while (data->field > data->field_2 && data->minus == 0 && data->zero == 0)
 	{
 		ft_putchar(' ');
@@ -49,9 +55,9 @@ long double		correct_flags(long double n, t_data *data)
 	if (n == 0)
 		data->neg = 0;
 	data->digits = ft_exponent((unsigned long long)n);
-	if (data->precision == 0)
+	if (data->precision == 0 && data->sharp == 0)
 		data->field_2 = data->digits;
-	if (data->precision > 0)
+	if (data->precision > 0 || data->sharp == 1)
 		data->field_2 = data->precision + data->digits + 1;
 	if (data->neg == -1 || data->plus == 1)
 		data->field_2 += 1;
@@ -104,7 +110,10 @@ va_list			*flag_f(va_list ap, t_data *data)
 	char		*p;
 	char		*s;
 
-	n = va_arg(ap, long double);
+	if (data->long_double == 0)
+		n = va_arg(ap, double);
+	else
+		n = va_arg(ap, long double);
 	n = correct_flags(n, data);
 	print_fil(data);
 	if (!(save = (char *)malloc(sizeof(save) * (data->field_2 + 1))))
@@ -112,10 +121,12 @@ va_list			*flag_f(va_list ap, t_data *data)
 	p = save;
 	s = save;
 	p = ftoa_integer(n, data, p);
-	if (data->precision != 0)
+	if (data->precision != 0 || data->sharp == 1)
 		p = ftoa_decimal(n, data, p, s);
+	data->pass == 0 ? incr_integer(n, p, s) : 0;
 	*p = '\0';
 	ft_putstr(save);
+	minus_f(data);
 	free(save);
 	return (0);
 }

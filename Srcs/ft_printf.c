@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:37:53 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 15:12:35 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:21:59 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 t_func	g_tab[] =
 {
@@ -46,6 +46,7 @@ t_flag	g_flag[] =
 	{&flag_field, '9'},
 	{&flag_h, 'h'},
 	{&flag_l, 'l'},
+	{&flag_long_double, 'L'},
 	{NULL, -1}
 };
 
@@ -93,6 +94,8 @@ void	ft_init_data(t_data *data, const char **format)
 	data->neg = 1;
 	data->digits = 0;
 	data->pass = 0;
+	data->add_one = 0;
+	data->long_double = 0;
 	data->spe = '|';
 }
 
@@ -110,6 +113,8 @@ void	ft_reset_flag(t_data *data)
 	data->neg = 1;
 	data->digits = 0;
 	data->pass = 0;
+	data->add_one = 0;
+	data->long_double = 0;
 	data->spe = '|';
 }
 
@@ -127,9 +132,9 @@ int		ft_printf(const char *format, ...)
 			data.j++;
 			while (list_flag(format[data.j]) == 1)
 				exec_flag(format[data.j], &data);
-			if (format[data.j] == '%')
+			if (format[data.j] && format[data.j] == '%')
 				print_percentage(&data);
-			else if (format[data.j] != '%')
+			else if (format[data.j] && format[data.j] != '%')
 				exec_specifier(format[data.j++], ap, &data);
 			ft_reset_flag(&data);
 		}

@@ -6,7 +6,7 @@
 #    By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/20 04:50:38 by fgaribot          #+#    #+#              #
-#    Updated: 2019/11/03 10:45:17 by fgaribot         ###   ########.fr        #
+#    Updated: 2019/11/03 23:18:41 by fgaribot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ DIR_S = srcs
 DIR_O = obj
 HEADER = includes
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
-SRC = ./Srcs/
+CFLAGS = -Wall -Werror -Wextra
+SRC = ./srcs/
 
 SOURCES = 	flag_s.c\
 			flag_di.c\
@@ -39,6 +39,8 @@ SOURCES = 	flag_s.c\
 			print_signed.c\
 			ft_printf.c\
 			print_percentage.c\
+			flag_long_double.c\
+			list_specifier.c\
 			decimal_print_base_anex.c
 
 FILES = $(SRC)flag_s.c\

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flag_precision.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:44:52 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/21 12:19:30 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:21:38 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	flag_precision(t_data *data)
 {

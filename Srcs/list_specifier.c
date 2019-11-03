@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countdigits.c                                   :+:      :+:    :+:   */
+/*   list_specifier.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 14:02:04 by fgaribot          #+#    #+#             */
-/*   Updated: 2018/11/14 18:53:19 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/11/03 19:03:31 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/11/03 19:06:08 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_countdigits(int n)
+int		list_specifier(char c)
 {
-	int		count;
+	char	*flags;
+	int		i;
 
-	count = 0;
-	if (n == 0)
-		count = 1;
-	while (n != 0)
-	{
-		n = n / 10;
-		count++;
-	}
-	return (count);
+	i = 0;
+	flags = "diouxXscpf";
+	while (flags[i] != c && flags[i] != '|')
+		i++;
+	if (flags[i] == c && c != '|')
+		return (1);
+	return (0);
 }

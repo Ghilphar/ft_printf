@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   flag_long_double.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 09:24:37 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 16:00:51 by fgaribot         ###   ########.fr       */
+/*   Created: 2019/02/06 15:44:52 by fgaribot          #+#    #+#             */
+/*   Updated: 2019/11/03 23:21:29 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-void	ft_putstr(char const *s)
+void	flag_long_double(t_data *data)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	data->long_double = 1;
+	data->j += 1;
 }

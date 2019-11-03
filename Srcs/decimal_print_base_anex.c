@@ -6,11 +6,11 @@
 /*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:58:56 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/11/02 20:39:09 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:22:15 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	print_pointer(t_data *data, int j)
 {

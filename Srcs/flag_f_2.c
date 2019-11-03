@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   flag_f_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:15:44 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 15:22:05 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:22:22 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+
+void			minus_f(t_data *data)
+{
+	while (data->field_2 < data->field)
+	{
+		ft_putchar(' ');
+		data->i++;
+		data->field_2++;
+	}
+}
+
+void			incr_integer(long double n, char *dest, char *s)
+{
+	long double decimal;
+
+	decimal = n - (long long)n;
+	decimal *= 10;
+	if ((int)decimal >= 5)
+		dest = incr(s, dest - 1) + 1;
+}
 
 int				ft_exponent(unsigned long long n)
 {
@@ -43,8 +63,9 @@ char			*ftoa_decimal(long double n, t_data *data, char *dest, char *s)
 		precision--;
 	}
 	decimal *= 10;
-	if ((int)decimal > 5)
+	if ((int)decimal >= 5)
 		dest = incr(s, dest - 1) + 1;
+	data->pass = 1;
 	return (dest);
 }
 

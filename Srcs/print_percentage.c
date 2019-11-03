@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_percentage.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 16:00:27 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/04/23 15:12:25 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:22:00 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	ft_put(t_data *data)
 {

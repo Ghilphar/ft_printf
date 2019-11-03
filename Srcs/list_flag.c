@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_flag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgaribot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:16:37 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/02/21 10:38:27 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 18:25:21 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		list_flag(char c)
 	int		i;
 
 	i = 0;
-	flags = "0123456789.#+- hl|";
+	flags = "0123456789.#+- hlL|";
 	while (flags[i] != c && flags[i] != '|')
 		i++;
 	if (flags[i] == c && c != '|')

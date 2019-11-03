@@ -6,7 +6,7 @@
 /*   By: fgaribot <fgaribot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/20 02:22:14 by fgaribot          #+#    #+#             */
-/*   Updated: 2019/11/02 20:36:13 by fgaribot         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:18:09 by fgaribot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct		s_data
 	int				digits;
 	char			spe;
 	int				field_2;
+	int				add_one;
+	int				long_double;
 }					t_data;
 
 void				flag_h(t_data *data);
@@ -95,5 +97,16 @@ void				print_prec(t_data *data);
 void				print_min(t_data *data);
 void				ft_putstr(char const *str);
 void				print_sharp(t_data *data, int j);
+void				flag_long_double(t_data *data);
+int					list_specifier(char c);
+void				incr_integer(long double n, char *dest, char *s);
+void				minus_f(t_data *data);
+int					ft_exponent(unsigned long long n);
+char				*ftoa_decimal(long double n, t_data *data, char *dest,
+					char *s);
+char				*ftoa_integer(long double n, t_data *data, char *dest);
+char				*incr(char *s, char *f);
+void				reverse(char *p, char *q);
+void				ft_put(t_data *data);
 
 #endif
